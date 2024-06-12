@@ -8,8 +8,8 @@ async function wrapper() {
         const result_promise = fetch(STOCK_URL, {
             signal: controller.signal,
         });
-        // у меня одной секунды не хватало, а две - норм
-        setTimeout((controller) => controller.abort(), 2000, controller);
+        // у меня одной секунды не хватало, а три - норм
+        setTimeout((controller) => controller.abort(), 3000, controller);
         const result = await result_promise;
         console.log("data: ", await result.json());
     } catch (err) {

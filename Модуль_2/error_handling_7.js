@@ -1,9 +1,10 @@
 function typeError(){
     try{
-        undefined.property
+        Math.random() > 0.5 ? undefined.property : null.property
     } catch(err){
         if(err instanceof TypeError) console.log(err.message);
-        else console.log("some other error")
     }
 }
 typeError()
+// undefined.property;
+// null.property;
