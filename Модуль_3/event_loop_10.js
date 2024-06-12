@@ -4,7 +4,7 @@ function getRandom() {
 
 let promise = new Promise((res, rej) => {
     let v = getRandom();
-    setTimeout(v <= 5 ? res : rej, 1000*v, v)
+    setTimeout(v <= 5 ? res : rej, 1000 * v, v);
 });
 
 promise.then(

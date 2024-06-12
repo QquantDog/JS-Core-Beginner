@@ -1,7 +1,7 @@
-function firstAndLastDigitSum(n){
-    if(typeof n != "number") throw new Error("Not a number");
-    let str = (Math.abs(n)).toString(); 
-    return +str[0] + +str[str.length - 1]
+function firstAndLastDigitSum(n) {
+    if (typeof n != "number") throw new Error("Not a number");
+    let str = Math.abs(n).toString();
+    return +str[0] + +str[str.length - 1];
 }
 
 console.log(firstAndLastDigitSum(12325));

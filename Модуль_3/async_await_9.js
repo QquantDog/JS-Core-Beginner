@@ -4,7 +4,7 @@ async function loadData(url_arr) {
 
     url_arr.forEach((url) => promise_arr.push(fetch(url)));
 
-    try{
+    try {
         const data = await Promise.allSettled(promise_arr);
         const filtered_data = data.filter((el) => el.status === "fulfilled").map((el) => el.value);
 
@@ -15,10 +15,9 @@ async function loadData(url_arr) {
         }
 
         (await Promise.all(deserialized_promises)).forEach(console.log);
-    } catch(err){
-        console.log("err: ", err.message)
+    } catch (err) {
+        console.log("err: ", err.message);
     }
-
 }
 
 // допуская ошибки в урл они автоматически откидываются

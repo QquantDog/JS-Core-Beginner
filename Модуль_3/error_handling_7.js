@@ -3,4 +3,5 @@ function twoNumber(a, b) {
     return a + b;
 }
 
-twoNumber(2, 0);
+console.log(twoNumber(2, 1));
+console.log(twoNumber(2, 0));
