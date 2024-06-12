@@ -1,29 +1,30 @@
-const PRODUCTS_URL = "https://fakestoreapi.com/products";
+const CART_URL = "https://fakestoreapi.com/carts";
+const USER_URL = "https://fakestoreapi.com/users";
 
-async function getData(url) {
+async function wrapper(productId) {
     try {
-        const result = await fetch(url);
-        return await result.json();
+        const response = await fetch(CART_URL);
+        const carts = await response.json();
+        if (carts == null) return console.log({});
+
+        //отфильтровать корзинки где есть только продукт с опрделенным айди
+        const carts_with_productId = carts.filter((el) => {
+            if (el.products.some((record) => record.productId == productId)) return true;
+            else return false;
+        });
+        // уникальные id пользователей у которых в корзинке лежит продукт с id которая передана в функцию в качестве аргумента
+        const unique_user_ids = [...new Set(carts_with_productId.map((el) => el.userId))];
+        if (unique_user_ids.length == 0) return console.log({});
+        // способ вывести всех таких пользователей костыльный но задачу выполняет
+        // выведем для простоты последнего пользователя
+        const user = await fetch(`${USER_URL}/${unique_user_ids[unique_user_ids.length - 1]}`);
+        const result = await user.json();
+        console.log(result);
+        return result;
     } catch (err) {
-        return null;
+        console.log(err.message);
     }
 }
-
-async function wrapper() {
-    // найти userId первого поста из отсортированных у которого число слов больше 7
-    let products = await getData(PRODUCTS_URL);
-    if (products == null) return [];
-
-    const products_ids
-    console.log(products)
-
-    // const userId = posts.filter((el) => el.body.split(" ").length > 7).sort()[0].userId;
-    //выдать все данные по пользователю
-    // try {
-    //     const user = await fetch(``);
-    // } catch {
-    //     return [];
-    // }
-}
-
-wrapper();
+// индексы 1-12 точно есть, кроме 4,11
+const productId = 10;
+wrapper(productId);
