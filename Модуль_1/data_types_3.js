@@ -1,7 +1,6 @@
-// для итерации по ключам считаем что Object.keys достаточна
-// она перебирает все enumerable string(есть еще symbol) properties объекта ограничиваясь текущим объектом, а не цепочкой прототипов
-// function deepComparing(o)
-// function nullObjEquality
+// для итерации по ключам считаем что Object.keys достаточно
+// она перебирает все enumerable string(symbol не включаем) properties объекта ограничиваясь текущим объектом, а не цепочкой прототипов
+
 
 function deepEqual(o1, o2) {
     if (typeof o1 != "object" || typeof o2 != "object") return false;

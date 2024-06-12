@@ -1,5 +1,5 @@
-"use strict";
 function factorial(n) {
+    "use strict";
     if (typeof n !== "number") throw Error("Not a number");
     if (n < 0 || Number.isNaN(n) || n > Number.MAX_SAFE_INTEGER) throw Error("Out of range");
     if(!Number.isInteger(n)) throw new Error("Not an integer")
@@ -11,4 +11,4 @@ function factorial(n) {
     }
     return res;
 }
-console.log(factorial(-5));
+console.log(factorial(5));

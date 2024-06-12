@@ -22,8 +22,6 @@ function getData2(arr) {
 //     .then(console.log)
 //     .catch((err)=>console.log("Error while fetching or converting: ", err.message));
 
-// или другая функция
-
 getData2([1, 2, 3])
     .then((data) => {
         if (Math.random() > 0.5) {
